@@ -57,7 +57,17 @@ public class Restaurant {
     public String getName() {
         return name;
     }
-
+    public int getPriceOfItems(String orders){
+        String[] customerOrders = orders.split(",");
+        int totalAmount = 0;
+        for(String name: customerOrders){
+            Item item = findItemByName(name);
+            if(item != null){
+                totalAmount += item.getPrice();
+            }
+        }
+        return totalAmount;
+    }
 
 }
 
