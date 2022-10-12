@@ -75,5 +75,12 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+    @Test
+    public void get_total_amount_for_the_customer_order(){
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        String[] customerOrder = {"Sweet corn soup", "Vegetable lasagne"};
+        assertEquals(388, restaurant.getPriceOfItems(String.join(",", customerOrder)));
+    }
 }
